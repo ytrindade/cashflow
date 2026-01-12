@@ -1,0 +1,59 @@
+﻿using CashFlow.Exception;
+using CommonTestsUtilities.Requests;
+using FluentAssertions;
+using System.Globalization;
+using System.Net;
+using System.Net.Http.Headers;
+using System.Net.Http.Json;
+using System.Text.Json;
+using WebApi.Test.InlineData;
+
+namespace WebApi.Test.Expenses.Register;
+public class RegisterExpenseTest : CashFlowClassFixture
+{
+    private readonly string _token;
+    private const string METHOD = "api/Expenses";
+
+    public RegisterExpenseTest(CustomWebApplicationFactory webApplicationFactory) : base(webApplicationFactory)
+    {
+        _token = webApplicationFactory.User_Team_Member.GetToken();
+    }
+
+    [Fact]
+    public async Task Success()
+    {
+        var request = RequestExpenseJsonBuilder.Build();
+
+        var result = await DoPost(METHOD, request, token: _token);
+
+        result.StatusCode.Should().Be(HttpStatusCode.Created);
+
+        var body = await result.Content.ReadAsStreamAsync();
+
+        var response = await JsonDocument.ParseAsync(body);
+
+        response.RootElement.GetProperty("title").ToString().Should().Be(request.Title);
+    }
+
+    [Theory]
+    [ClassData(typeof(CultureInlineDataTest))]
+    public async Task Error_Empty_Title(string culture)
+    {
+        var request = RequestExpenseJsonBuilder.Build();
+        request.Title = string.Empty;
+
+        var result = await DoPost(METHOD, request, _token, culture);
+
+        result.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+
+        var body = await result.Content.ReadAsStreamAsync();
+
+        var response = await JsonDocument.ParseAsync(body);
+
+        var errors = response.RootElement.GetProperty("errorMessages").EnumerateArray();
+
+        var expectedError = ResourceErrorMessages.ResourceManager.GetString("TITLE_REQUIRED", new CultureInfo(culture));
+
+        errors.Should().HaveCount(1).And.Contain(ex => ex.GetString()!.Equals(expectedError));
+    }
+}
