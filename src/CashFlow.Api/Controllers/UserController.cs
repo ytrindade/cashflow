@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CashFlow.Api.Controllers;
-[Route("api/[controller]")]
+[Route("cashFlow/[controller]")]
 [ApiController]
 public class UserController : ControllerBase
 {

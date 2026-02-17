@@ -121,4 +121,7 @@
   <data name="AMOUNT_GREATER_THAN_ZERO" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
   </data>
+  <data name="EMAIL_EMPTY" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
 </root>

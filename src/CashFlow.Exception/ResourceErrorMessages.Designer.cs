@@ -79,7 +79,7 @@ namespace CashFlow.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Email cannot be empty.
+        ///   Looks up a localized string similar to E-mail não pode ser vazio.
         /// </summary>
         public static string EMAIL_EMPTY {
             get {
@@ -88,7 +88,7 @@ namespace CashFlow.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Email is not valid.
+        ///   Looks up a localized string similar to E-mail inválido.
         /// </summary>
         public static string EMAIL_INVALID {
             get {
@@ -106,7 +106,7 @@ namespace CashFlow.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Expense not found.
+        ///   Looks up a localized string similar to Despesa não encontrada.
         /// </summary>
         public static string EXPENSE_NOT_FOUND {
             get {
@@ -115,7 +115,7 @@ namespace CashFlow.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to As despesas não podem ser para o futuro.
+        ///   Looks up a localized string similar to As despesas não podem ser para datas futuras.
         /// </summary>
         public static string EXPENSES_FOR_PAST_DATES {
             get {
@@ -133,7 +133,7 @@ namespace CashFlow.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Name cannot be empty.
+        ///   Looks up a localized string similar to Nome não pode ser vazio.
         /// </summary>
         public static string NAME_EMPTY {
             get {
@@ -142,11 +142,20 @@ namespace CashFlow.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Password doesn&apos;t match.
+        ///   Looks up a localized string similar to A senha digitada não condiz com a atual.
         /// </summary>
         public static string PASSWORD_DOES_NOT_MATCH {
             get {
                 return ResourceManager.GetString("PASSWORD_DOES_NOT_MATCH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A nova senha não pode ser igual à senha atual.
+        /// </summary>
+        public static string PASSWORD_MUST_BE_DIFFERENT {
+            get {
+                return ResourceManager.GetString("PASSWORD_MUST_BE_DIFFERENT", resourceCulture);
             }
         }
         
@@ -160,7 +169,7 @@ namespace CashFlow.Exception {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tag type not supported.
+        ///   Looks up a localized string similar to Tipo de tag inválido.
         /// </summary>
         public static string TAG_TYPE_NOT_SUPPORTED {
             get {

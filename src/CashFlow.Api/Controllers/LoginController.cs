@@ -4,7 +4,7 @@ using CashFlow.Communication.Response;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CashFlow.Api.Controllers;
-[Route("api/[controller]")]
+[Route("cashFlow/[controller]")]
 [ApiController]
 public class LoginController : ControllerBase
 {

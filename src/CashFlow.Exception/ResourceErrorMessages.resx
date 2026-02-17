@@ -121,19 +121,19 @@
     <value>O valor deve ser maior que zero</value>
   </data>
   <data name="EMAIL_INVALID" xml:space="preserve">
-    <value>Email is not valid</value>
+    <value>E-mail inválido</value>
   </data>
   <data name="EMAIL_EMPTY" xml:space="preserve">
-    <value>Email cannot be empty</value>
+    <value>E-mail não pode ser vazio</value>
   </data>
   <data name="EXPENSES_FOR_PAST_DATES" xml:space="preserve">
-    <value>As despesas não podem ser para o futuro</value>
+    <value>As despesas não podem ser para datas futuras</value>
   </data>
   <data name="EXPENSE_NOT_FOUND" xml:space="preserve">
-    <value>Expense not found</value>
+    <value>Despesa não encontrada</value>
   </data>
   <data name="NAME_EMPTY" xml:space="preserve">
-    <value>Name cannot be empty</value>
+    <value>Nome não pode ser vazio</value>
   </data>
   <data name="PAYMENT_NOT_VALID" xml:space="preserve">
     <value>Forma de pagamento inválida</value>
@@ -154,9 +154,12 @@
     <value>E-mail e/ou senha inválido(s)</value>
   </data>
   <data name="PASSWORD_DOES_NOT_MATCH" xml:space="preserve">
-    <value>Password doesn't match</value>
+    <value>A senha digitada não condiz com a atual</value>
   </data>
   <data name="TAG_TYPE_NOT_SUPPORTED" xml:space="preserve">
-    <value>Tag type not supported</value>
+    <value>Tipo de tag inválido</value>
+  </data>
+  <data name="PASSWORD_MUST_BE_DIFFERENT" xml:space="preserve">
+    <value>A nova senha não pode ser igual à senha atual</value>
   </data>
 </root>

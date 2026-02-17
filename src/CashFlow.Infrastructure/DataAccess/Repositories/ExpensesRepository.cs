@@ -14,8 +14,7 @@ internal class ExpensesRepository : IExpensesReadOnlyRepository, IExpensesWriteO
     public async Task Add(Expense expense) => await _dbContext.Expenses.AddAsync(expense);
 
     public async Task<List<Expense>> GetAll(User user) => 
-        await _dbContext
-        .Expenses
+        await GetFullExpense()
         .AsNoTracking()
         .Where(expense => expense.UserId == user.Id)
         .ToListAsync();

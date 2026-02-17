@@ -49,6 +49,9 @@ public class ChangePasswordUseCase : IChangePasswordUseCase
 
         var passwordMatch = _passwordEncryptor.Verify(request.CurrentPassword, loggedUser.Password);
 
+        if(_passwordEncryptor.Verify(request.NewPassword, loggedUser.Password))
+            result.Errors.Add(new ValidationFailure(string.Empty, ResourceErrorMessages.PASSWORD_MUST_BE_DIFFERENT));
+
         if (!passwordMatch)
             result.Errors.Add(new ValidationFailure(string.Empty, ResourceErrorMessages.PASSWORD_DOES_NOT_MATCH));
 

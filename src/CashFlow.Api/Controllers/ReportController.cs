@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using System.Net.Mime;
 
 namespace CashFlow.Api.Controllers;
-[Route("api/[controller]")]
+[Route("cashFlow/[controller]")]
 [ApiController]
-[Authorize(Roles = Roles.ADMIN)]
+[Authorize]
 public class ReportController : ControllerBase
 {
     [HttpGet("excel")]
