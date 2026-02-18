@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+:root {
+  --scrollbar-size: 10px;
+  --scrollbar-track: #e2e8f0;
+  --scrollbar-thumb: #94a3b8;
+  --scrollbar-thumb-hover: #64748b;
+}
+
+[data-theme='dark'] {
+  --scrollbar-track: #282a36;
+  --scrollbar-thumb: #4b5563;
+  --scrollbar-thumb-hover: #61ccff;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+*::-webkit-scrollbar {
+  width: var(--scrollbar-size);
+  height: var(--scrollbar-size);
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+  border-radius: 9999px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 9999px;
+  border: 2px solid var(--scrollbar-track);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+[data-theme='dark'] input[type='date']::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+/* Remove spinners de input number */
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.expense-notification-border-progress {
+  position: relative;
+  overflow: hidden;
+}
+
+.expense-notification-border-progress::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #22c55e;
+  transform-origin: left center;
+  transform: scaleX(0);
+  animation: expenseNotificationBorderProgress 2s linear forwards;
+}
+
+.expense-notification-lifetime {
+  animation: expenseNotificationLifetime 2s linear forwards;
+}
+
+@keyframes expenseNotificationBorderProgress {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes expenseNotificationLifetime {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
